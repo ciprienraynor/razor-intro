@@ -13,4 +13,12 @@
       <Content Remove="Components\Pages\Error.razor" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Utils\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor.Diagnostics\Blazor.Diagnostics.csproj" />
+    </ItemGroup>
+
 </Project>

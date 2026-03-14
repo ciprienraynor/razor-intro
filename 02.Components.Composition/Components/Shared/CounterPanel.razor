@@ -1,0 +1,16 @@
+@inherits Blazor.Diagnostics.Components.LoggingComponent
+<div class="counter-panel">
+
+    <h4>Counter Panel</h4>
+
+    <p>Value: @Value</p>
+
+    <button class="btn btn-primary" @onclick="IncrementClicked">
+        Increment
+    </button>
+
+    <button class="btn btn-secondary" @onclick="ResetClicked">
+        Reset
+    </button>
+
+</div>
