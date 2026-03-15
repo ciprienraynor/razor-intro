@@ -1,0 +1,12 @@
+﻿@page "/"
+@using _04.Components.DeepNestingAndSiblings.Components.Features.Counter
+@rendermode InteractiveServer
+
+<PageTitle>Deep Nesting and Siblings</PageTitle>
+
+<h3>App 04 — Deep Nesting and Siblings</h3>
+
+<CounterHost
+    Value="@count"
+    OnIncrement="@IncrementCount"
+    OnReset="@ResetCount" />

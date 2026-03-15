@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Diagnostics", "Blazo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Components.CallbackPayloads", "03.Components.CallbackPayloads\03.Components.CallbackPayloads.csproj", "{13508B45-3951-4DB2-9DAB-57C47400A4F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Components.DeepNestingAndSiblings", "04.Components.DeepNestingAndSiblings\04.Components.DeepNestingAndSiblings.csproj", "{C2056A16-A6C8-4E3A-84F2-EA6A20819387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
