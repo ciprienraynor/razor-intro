@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Components.Composition",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Diagnostics", "Blazor.Diagnostics\Blazor.Diagnostics.csproj", "{26321F5F-31BD-48C1-AE55-F88F98E32BBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Components.CallbackPayloads", "03.Components.CallbackPayloads\03.Components.CallbackPayloads.csproj", "{13508B45-3951-4DB2-9DAB-57C47400A4F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{26321F5F-31BD-48C1-AE55-F88F98E32BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26321F5F-31BD-48C1-AE55-F88F98E32BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26321F5F-31BD-48C1-AE55-F88F98E32BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13508B45-3951-4DB2-9DAB-57C47400A4F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

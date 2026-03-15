@@ -1,0 +1,11 @@
+﻿@page "/"
+@using _03.Components.CallbackPayloads.Components.Features.CallbackPayloadDemo
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h3>Selected number: @selectedNumber</h3>
+
+<NumberPad
+    OnNumberSelected="@HandleNumberSelected"
+    OnResetRequested="@HandleReset" />

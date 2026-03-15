@@ -1,0 +1,10 @@
+@inherits Blazor.Diagnostics.Components.LoggingComponent
+@rendermode InteractiveServer
+
+<div>
+    <button @onclick="() => Select(1)">1</button>
+    <button @onclick="() => Select(2)">2</button>
+    <button @onclick="() => Select(3)">3</button>
+
+    <button @onclick="Reset">Reset</button>
+</div>
