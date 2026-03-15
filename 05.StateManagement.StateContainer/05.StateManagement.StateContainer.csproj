@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>_05.StateManagement.StateContainer</RootNamespace>
+        <AssemblyName>$(AssemblyName.Replace(' ', '_'))</AssemblyName>
+        <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Components\Shared\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Components\Features\Counter\CounterControls.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterControlsSection.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterDisplay.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterDisplaySection.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterHost.razor" />
+      <AdditionalFiles Include="Components\Shared\Pages\Error.razor" />
+      <AdditionalFiles Include="Components\Shared\Pages\Home.razor" />
+      <AdditionalFiles Include="Components\Shared\Pages\NotFound.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor.Diagnostics\Blazor.Diagnostics.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterControls.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterControlsSection.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterControlsWrapper.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterDisplay.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterDisplaySection.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterDisplayWrapper.razor" />
+      <_ContentIncludedByDefault Remove="Features\Counter\CounterHost.razor" />
+    </ItemGroup>
+
+</Project>

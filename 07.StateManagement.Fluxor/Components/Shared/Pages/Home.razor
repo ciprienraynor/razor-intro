@@ -1,0 +1,11 @@
+﻿@page "/"
+@using _07.StateManagement.Fluxor.Components.Features.Counter
+
+<PageTitle>Deep Nesting and Siblings</PageTitle>
+
+<h3>App 06 — State Management - StoreReducer</h3>
+
+<CounterHost
+    Value="@count"
+    OnIncrement="@IncrementCount"
+    OnReset="@ResetCount" />

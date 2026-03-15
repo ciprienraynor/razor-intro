@@ -10,6 +10,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Components.CallbackPaylo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Components.DeepNestingAndSiblings", "04.Components.DeepNestingAndSiblings\04.Components.DeepNestingAndSiblings.csproj", "{C2056A16-A6C8-4E3A-84F2-EA6A20819387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.StateManagement.StateContainer", "05.StateManagement.StateContainer\05.StateManagement.StateContainer.csproj", "{CE0563F6-7803-4545-8618-94154DC5F489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.StateManagement.StoreReducer", "06.StateManagement.StoreReducer\06.StateManagement.StoreReducer.csproj", "{7AD5D455-210E-4627-8B63-84ACECFF2C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.StateManagement.Fluxor", "07.StateManagement.Fluxor\07.StateManagement.Fluxor.csproj", "{D79910C7-CC07-46A7-9FAC-85097A926474}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +42,17 @@ Global
 		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2056A16-A6C8-4E3A-84F2-EA6A20819387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0563F6-7803-4545-8618-94154DC5F489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0563F6-7803-4545-8618-94154DC5F489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0563F6-7803-4545-8618-94154DC5F489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0563F6-7803-4545-8618-94154DC5F489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD5D455-210E-4627-8B63-84ACECFF2C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD5D455-210E-4627-8B63-84ACECFF2C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD5D455-210E-4627-8B63-84ACECFF2C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD5D455-210E-4627-8B63-84ACECFF2C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D79910C7-CC07-46A7-9FAC-85097A926474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D79910C7-CC07-46A7-9FAC-85097A926474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D79910C7-CC07-46A7-9FAC-85097A926474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D79910C7-CC07-46A7-9FAC-85097A926474}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,11 @@
+﻿@page "/"
+@using _05.StateManagement.StateContainer.Components.Features.Counter
+
+<PageTitle>Deep Nesting and Siblings</PageTitle>
+
+<h3>App 05 — State Management - StateContainer</h3>
+
+<CounterHost
+    Value="@count"
+    OnIncrement="@IncrementCount"
+    OnReset="@ResetCount" />
