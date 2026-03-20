@@ -1,10 +1,16 @@
 using _06.StateManagement.StoreReducer.Components;
+using _06.StateManagement.StoreReducer.Components.Features.Counter.State;
+using Blazor.Diagnostics.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddBlazorDiagnostics();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddScoped<CounterStore>();
 
 var app = builder.Build();
 

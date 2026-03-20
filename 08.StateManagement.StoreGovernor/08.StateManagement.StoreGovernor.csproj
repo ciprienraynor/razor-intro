@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>_08.StateManagement.StoreGovernor</RootNamespace>
+        <AssemblyName>$(AssemblyName.Replace(' ', '_'))</AssemblyName>
+        <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\Pages\Error.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Home.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\NotFound.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Components\Features\Counter\CounterControls.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterControlsSection.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterDisplay.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterDisplaySection.razor" />
+      <AdditionalFiles Include="Components\Features\Counter\CounterHost.razor" />
+    </ItemGroup>
+
+<!--    To show the generated files in the IDE, we need to set the `EmitCompilerGeneratedFiles` -->
+<!--    property to `true` and specify an output path for the generated files using the `CompilerGeneratedFilesOutputPath` property. -->
+<!--    This will allow us to see the generated files in a "Generated" folder within our project.-->
+<!--    <PropertyGroup>-->
+<!--        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>-->
+<!--        <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>-->
+<!--    </PropertyGroup>-->
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor.Diagnostics\Blazor.Diagnostics.csproj" />
+    </ItemGroup>
+
+</Project>

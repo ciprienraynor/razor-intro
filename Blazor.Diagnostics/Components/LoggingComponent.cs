@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Blazor.Diagnostics.Components;
 
-
 public abstract class LoggingComponent : ComponentBase
 {
     [Inject]

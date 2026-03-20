@@ -1,0 +1,16 @@
+@using _08.StateManagement.StoreGovernor.Components.Features.Counter.State
+@using _08.StateManagement.StoreGovernor.Components.Shared.Components
+@inherits StoreComponent<CounterStore, CounterState>
+
+<div style="border:1px solid #ddd; padding:12px; margin-top:12px;">
+    @if (State.IsLoading)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <h3>Count: @State.Count</h3>
+    }
+    
+    <ErrorView State="@State" />
+</div>

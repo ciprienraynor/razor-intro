@@ -1,0 +1,11 @@
+@using _08.StateManagement.StoreGovernor.Components.Features.Counter.State
+@using _08.StateManagement.StoreGovernor.Components.Shared.Components
+@inherits StoreComponent<CounterStore, CounterState>
+
+<div style="border:1px solid #ddd; padding:12px; margin-top:12px;">
+    <strong>CounterControls</strong>
+    <div style="display:flex; gap:8px; margin-top:8px;">
+        <button class="btn btn-primary" @onclick="IncrementClicked">Increment</button>
+        <button class="btn btn-secondary" @onclick="ResetClicked">Reset</button>
+    </div>
+</div>

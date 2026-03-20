@@ -1,10 +1,13 @@
 using _05.StateManagement.StateContainer.Components;
+using _05.StateManagement.StateContainer.Components.Features.Counter;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddScoped<CounterStateContainer>();
 
 var app = builder.Build();
 

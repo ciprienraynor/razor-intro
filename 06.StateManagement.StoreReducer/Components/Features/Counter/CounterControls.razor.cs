@@ -1,22 +1,20 @@
+using _06.StateManagement.StoreReducer.Components.Features.Counter.State;
 using Microsoft.AspNetCore.Components;
 
 namespace _06.StateManagement.StoreReducer.Components.Features.Counter;
 
 public partial class CounterControls : ComponentBase
 {
-    [Parameter]
-    public EventCallback OnIncrement { get; set; }
+    [Inject]
+    private CounterStore Store { get; set; } = null!;
 
-    [Parameter]
-    public EventCallback OnReset { get; set; }
-
-    private async Task IncrementClicked()
+    private void IncrementClicked()
     {
-        await OnIncrement.InvokeAsync();
+        Store.Dispatch(new IncrementAction());
     }
 
-    private async Task ResetClicked()
+    private void ResetClicked()
     {
-        await OnReset.InvokeAsync();
+        Store.Dispatch(new ResetAction());
     }
 }

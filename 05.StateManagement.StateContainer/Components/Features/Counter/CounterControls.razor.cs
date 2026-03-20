@@ -4,19 +4,16 @@ namespace _05.StateManagement.StateContainer.Components.Features.Counter;
 
 public partial class CounterControls : ComponentBase
 {
-    [Parameter]
-    public EventCallback OnIncrement { get; set; }
+    [Inject]
+    private CounterStateContainer CounterState { get; set; } = null!;
 
-    [Parameter]
-    public EventCallback OnReset { get; set; }
-
-    private async Task IncrementClicked()
+    private void IncrementClicked()
     {
-        await OnIncrement.InvokeAsync();
+        CounterState.Increment();
     }
 
-    private async Task ResetClicked()
+    private void ResetClicked()
     {
-        await OnReset.InvokeAsync();
+        CounterState.Reset();
     }
 }

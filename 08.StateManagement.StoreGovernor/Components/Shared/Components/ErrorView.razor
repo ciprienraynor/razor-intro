@@ -1,0 +1,12 @@
+@using _08.StateManagement.StoreGovernor.Components.Shared.State
+@typeparam TState where TState : IErrorState
+
+<h3>ErrorView</h3>
+
+@if (State.IsError)
+{
+    <div style="border:1px solid red; padding:12px; margin-top:12px;">
+        <strong>Error:</strong>
+        <p>@State.ErrorMessage</p>
+    </div>
+}
