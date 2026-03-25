@@ -1,0 +1,37 @@
+@implements IDisposable
+@inject ILogger<DisposableChild> Logger
+
+<p>Child is alive</p>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _log = new();
+
+    protected override void OnInitialized()
+    {
+        Log("OnInitialized");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Log($"OnAfterRender (firstRender: {firstRender})");
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Dispose");
+    }
+
+    private void Log(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

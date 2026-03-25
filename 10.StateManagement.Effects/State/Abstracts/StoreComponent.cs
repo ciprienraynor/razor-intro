@@ -1,0 +1,38 @@
+using Microsoft.AspNetCore.Components;
+
+namespace _10.StateManagement.Effects.State.Abstracts;
+
+public abstract class StoreComponent<TStore, TState> : ComponentBase, IDisposable
+    where TStore : IStore<TState>
+{
+    [Inject]
+    protected TStore Store { get; set; } = default!;
+
+    protected TState State => Store.State;
+
+    protected sealed override void OnInitialized()
+    {
+        Store.Changed += OnStoreChanged;
+    }
+
+    protected sealed override async Task OnInitializedAsync()
+    {
+        await OnStoreInitializedAsync();
+    }
+
+    protected virtual Task OnStoreInitializedAsync()
+    {
+        return Task.CompletedTask;
+    }
+
+    private void OnStoreChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Store.Changed -= OnStoreChanged;
+        GC.SuppressFinalize(this);
+    }
+}

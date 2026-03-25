@@ -1,0 +1,39 @@
+@inject ILogger<ChildComponent> Logger
+
+<p>Child received: @Value</p>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public int Value { get; set; }
+
+    private readonly List<string> _log = new();
+
+    protected override void OnInitialized()
+    {
+        Log("OnInitialized");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Log($"OnParametersSet (Value: {Value})");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Log($"OnAfterRender (firstRender: {firstRender})");
+    }
+
+    private void Log(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

@@ -1,0 +1,50 @@
+@page "/after-render"
+@inject ILogger<LifecycleAfterRender> Logger
+
+<h3>Lifecycle.AfterRender</h3>
+
+<p>Render count: @_renderCount</p>
+
+<button @onclick="Trigger">Trigger Render</button>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _log = new();
+    private int _renderCount;
+
+    protected override void OnInitialized()
+    {
+        Log("OnInitialized");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _renderCount++;
+        Log($"OnAfterRender (firstRender: {firstRender})");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        Log($"OnAfterRenderAsync START (firstRender: {firstRender})");
+        await Task.Delay(500);
+        Log($"OnAfterRenderAsync END (firstRender: {firstRender})");
+    }
+
+    private void Trigger()
+    {
+        Log("Trigger Click");
+    }
+
+    private void Log(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

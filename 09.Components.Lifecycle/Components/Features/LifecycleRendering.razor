@@ -1,0 +1,60 @@
+@page "/rendering"
+@inject ILogger<LifecycleRendering> Logger
+
+<h3>Lifecycle.Rendering</h3>
+
+<p>Counter: @_count</p>
+
+<button @onclick="EventOnly">Event Only</button>
+<button @onclick="StateChange">State Change</button>
+<button @onclick="ForceRender">Force Render</button>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _log = new();
+    private int _count;
+
+    protected override void OnInitialized()
+    {
+        AddVisibleEntry("OnInitialized");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        // If you put something here with intention
+        // to show it on the screen it would never happen because
+        // here the actual rendering cycle is over  so until
+        // next render this will never show even if the state has changed.
+        Logger.LogInformation("OnAfterRender(firstRender: {FirstRender})", firstRender);
+    }
+
+    private void EventOnly()
+    {
+        AddVisibleEntry("EventOnly");
+    }
+
+    private void StateChange()
+    {
+        _count++;
+        AddVisibleEntry("StateChange");
+    }
+
+    private void ForceRender()
+    {
+        AddVisibleEntry("ForceRender");
+        StateHasChanged();
+    }
+
+    private void AddVisibleEntry(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

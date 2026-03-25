@@ -1,0 +1,45 @@
+@using StateManagement.Effects.State.Abstracts
+@using StateManagement.Effects.State.Separation;
+@page "/separation"
+@inherits StoreComponent<SeparationStore, SeparationState>
+
+<h3>Effects.Separation</h3>
+
+<p><strong>Selected product:</strong> @State.SelectedProductId</p>
+<p><strong>Loading:</strong> @State.IsLoading</p>
+
+<div style="display:flex; gap:8px; margin-bottom:16px;">
+    <button @onclick="@(() => Store.SelectProduct(1))">Select Product 1</button>
+    <button @onclick="@(() => Store.SelectProduct(2))">Select Product 2</button>
+    <button @onclick="LoadCurrentProductAsync" disabled="@State.IsLoading">Load Current Product</button>
+</div>
+
+@if (State.IsLoading)
+{
+    <p>Loading product...</p>
+}
+else if (!string.IsNullOrWhiteSpace(State.Error))
+{
+    <p style="color:crimson;">Error: @State.Error</p>
+}
+else if (State.Product is not null)
+{
+    <div style="border:1px solid #ccc; padding:16px; max-width:500px;">
+        <p><strong>Id:</strong> @State.Product.Id</p>
+        <p><strong>Title:</strong> @State.Product.Title</p>
+        <p><strong>Price:</strong> @State.Product.Price</p>
+        <p><strong>Description:</strong> @State.Product.Description</p>
+        <img src="@State.Product.Thumbnail" alt="@State.Product.Title" style="max-width:200px;" />
+    </div>
+}
+else
+{
+    <p>No product loaded.</p>
+}
+
+@code {
+    private async Task LoadCurrentProductAsync()
+    {
+        await Store.LoadCurrentProductAsync();
+    }
+}

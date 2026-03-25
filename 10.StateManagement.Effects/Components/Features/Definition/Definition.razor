@@ -1,0 +1,26 @@
+@using _10.StateManagement.Effects.State.Definition
+@using StateManagement.Effects.State.Abstracts
+
+@page "/definition"
+@inherits StoreComponent<DefinitionStore, DefinitionState>
+
+<h3>Effects.Definition</h3>
+
+<p>Count: @State.Count</p>
+<p>Loading: @State.IsLoading</p>
+<p>Message: @State.Message</p>
+
+<button @onclick="Increment">Increment (Pure)</button>
+<button @onclick="LoadMessage">Load Message (Effect)</button>
+
+@code {
+    private void Increment()
+    {
+        Store.Dispatch(new DefinitionAction.Increment());
+    }
+
+    private async Task LoadMessage()
+    {
+        await Store.LoadMessageAsync();
+    }
+}

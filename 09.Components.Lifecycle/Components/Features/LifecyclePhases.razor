@@ -1,0 +1,86 @@
+@page "/phases"
+@implements IDisposable
+@inject ILogger<LifecyclePhases> Logger
+
+<h3>Lifecycle.Phases</h3>
+
+<p>Render count: @_renderCount</p>
+
+<p><a href="/">Navigate away</a></p>
+
+<button @onclick="Increment">Increment</button>
+
+<ul>
+    @foreach (var entry in _logEntries)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _logEntries = new();
+    private int _renderCount;
+
+    public LifecyclePhases()
+    {
+        AddEntry("Constructor", writeToLogger: false);
+    }
+
+    protected override void OnInitialized()
+    {
+        AddEntry("OnInitialized");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AddEntry("OnInitializedAsync START");
+        await Task.Delay(300);
+        AddEntry("OnInitializedAsync END");
+    }
+
+    protected override void OnParametersSet()
+    {
+        AddEntry("OnParametersSet");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        AddEntry("OnParametersSetAsync START");
+        await Task.Delay(100);
+        AddEntry("OnParametersSetAsync END");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _renderCount++;
+        AddEntry($"OnAfterRender (firstRender: {firstRender})");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        AddEntry($"OnAfterRenderAsync START (firstRender: {firstRender})");
+        await Task.Delay(100);
+        AddEntry($"OnAfterRenderAsync END (firstRender: {firstRender})");
+    }
+
+    private void Increment()
+    {
+        AddEntry("Button Click");
+    }
+
+    public void Dispose()
+    {
+        Logger.LogInformation("Dispose");
+    }
+
+    private void AddEntry(string message, bool writeToLogger = true)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _logEntries.Add(entry);
+
+        if (writeToLogger)
+        {
+            Logger.LogInformation("{Entry}", entry);
+        }
+    }
+}

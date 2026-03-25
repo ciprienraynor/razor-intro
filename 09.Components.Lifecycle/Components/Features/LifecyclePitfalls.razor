@@ -1,0 +1,60 @@
+@page "/pitfalls"
+@implements IDisposable
+@inject ILogger<LifecyclePitfalls> Logger
+
+<h3>Lifecycle.Pitfalls</h3>
+
+<button @onclick="Trigger">Trigger Render</button>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _log = new();
+    private int _counter;
+    private bool _started;
+
+    protected override void OnInitialized()
+    {
+        Log("OnInitialized");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        Log($"OnAfterRenderAsync (firstRender: {firstRender})");
+
+        // PITFALL 1: infinite loop risk
+        if (!_started)
+        {
+            _started = true;
+            Log("Triggering StateHasChanged from OnAfterRenderAsync");
+            StateHasChanged(); // causes another render
+        }
+
+        // PITFALL 2: async completing late
+        await Task.Delay(2000);
+        Log("Async finished AFTER delay");
+    }
+
+    private void Trigger()
+    {
+        _counter++;
+        Log($"Trigger {_counter}");
+    }
+
+    public void Dispose()
+    {
+        Log("Dispose");
+    }
+
+    private void Log(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

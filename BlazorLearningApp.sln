@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.StateManagement.Fluxor",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.StateManagement.StoreGovernor", "08.StateManagement.StoreGovernor\08.StateManagement.StoreGovernor.csproj", "{F391AFCC-6BD2-4E62-9FBC-8477BB21CEC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Components.Lifecycle", "09.Components.Lifecycle\09.Components.Lifecycle.csproj", "{FB3D0D90-FDD6-4FF0-9C58-40283038A470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.StateManagement.Effects", "10.StateManagement.Effects\10.StateManagement.Effects.csproj", "{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +64,13 @@ Global
 		{F391AFCC-6BD2-4E62-9FBC-8477BB21CEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F391AFCC-6BD2-4E62-9FBC-8477BB21CEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F391AFCC-6BD2-4E62-9FBC-8477BB21CEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB3D0D90-FDD6-4FF0-9C58-40283038A470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB3D0D90-FDD6-4FF0-9C58-40283038A470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB3D0D90-FDD6-4FF0-9C58-40283038A470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB3D0D90-FDD6-4FF0-9C58-40283038A470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

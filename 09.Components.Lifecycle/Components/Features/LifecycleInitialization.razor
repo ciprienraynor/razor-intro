@@ -1,0 +1,57 @@
+@page "/initialization"
+@inject ILogger<LifecycleInitialization> Logger
+
+<h3>Lifecycle.Initialization</h3>
+
+<p>Status: @_status</p>
+<p>Render count: @_renderCount</p>
+
+<button @onclick="Trigger">Trigger Render</button>
+
+<ul>
+    @foreach (var entry in _log)
+    {
+        <li>@entry</li>
+    }
+</ul>
+
+@code {
+    private readonly List<string> _log = new();
+    private int _renderCount;
+    private string _status = "Not initialized";
+
+    protected override void OnInitialized()
+    {
+        _status = "OnInitialized done";
+        Log("OnInitialized");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _status = "Loading...";
+        Log("OnInitializedAsync START");
+
+        await Task.Delay(3000);
+
+        _status = "Initialized";
+        Log("OnInitializedAsync END");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _renderCount++;
+        Log($"OnAfterRender (firstRender: {firstRender})");
+    }
+
+    private void Trigger()
+    {
+        Log("Button Click");
+    }
+
+    private void Log(string message)
+    {
+        var entry = $"{DateTime.Now:HH:mm:ss.fff} | {message}";
+        _log.Add(entry);
+        Logger.LogInformation("{Entry}", entry);
+    }
+}

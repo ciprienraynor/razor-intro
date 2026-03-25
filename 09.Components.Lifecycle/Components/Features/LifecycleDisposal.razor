@@ -1,0 +1,20 @@
+@page "/disposal"
+@using _09.Components.Lifecycle.Components.Features.Sub
+
+<h3>Lifecycle.Disposal</h3>
+
+<button @onclick="Toggle">Toggle Child</button>
+
+@if (_showChild)
+{
+    <DisposableChild />
+}
+
+@code {
+    private bool _showChild = true;
+
+    private void Toggle()
+    {
+        _showChild = !_showChild;
+    }
+}

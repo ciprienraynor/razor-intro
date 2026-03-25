@@ -1,0 +1,35 @@
+@page "/shapes-request-response"
+@using _10.StateManagement.Effects.State.Abstracts;
+@using _10.StateManagement.Effects.State.Shapes;
+
+@inherits StoreComponent<RequestResponseStore, RequestResponseState>
+
+<h3>Effects.Shapes.RequestResponse</h3>
+
+<button @onclick="LoadAsync" disabled="@State.IsLoading">Load Product</button>
+
+@if (State.IsLoading)
+{
+    <p>Loading...</p>
+}
+else if (!string.IsNullOrWhiteSpace(State.Error))
+{
+    <p style="color:crimson;">@State.Error</p>
+}
+else if (State.Product is not null)
+{
+    <p><strong>Id:</strong> @State.Product.Id</p>
+    <p><strong>Title:</strong> @State.Product.Title</p>
+    <p><strong>Price:</strong> @State.Product.Price</p>
+}
+else
+{
+    <p>No product loaded.</p>
+}
+
+@code {
+    private Task LoadAsync()
+    {
+        return Store.LoadProductAsync();
+    }
+}

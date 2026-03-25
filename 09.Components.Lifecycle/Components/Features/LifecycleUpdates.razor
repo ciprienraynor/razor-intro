@@ -1,0 +1,19 @@
+@page "/updates"
+@using _09.Components.Lifecycle.Components.Features.Sub
+
+<h3>Lifecycle.Updates</h3>
+
+<p>Parent Counter: @_counter</p>
+
+<button @onclick="Increment">Increment Parent</button>
+
+<ChildComponent Value="_counter" />
+
+@code {
+    private int _counter;
+
+    private void Increment()
+    {
+        _counter++;
+    }
+}

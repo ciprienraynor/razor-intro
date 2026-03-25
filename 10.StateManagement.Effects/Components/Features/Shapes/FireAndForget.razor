@@ -1,0 +1,20 @@
+@page "/shapes-fire-and-forget"
+
+@using _10.StateManagement.Effects.State.Abstracts;
+@using _10.StateManagement.Effects.State.Shapes
+
+@inherits StoreComponent<FireAndForgetStore, FireAndForgetState>
+
+<h3>Effects.Shapes.FireAndForget</h3>
+
+<p><strong>Click count:</strong> @State.ClickCount</p>
+<p><strong>Last intent:</strong> @State.LastIntent</p>
+
+<button @onclick="TrackAsync">Track Analytics</button>
+
+@code {
+    private Task TrackAsync()
+    {
+        return Store.TrackViewAsync();
+    }
+}

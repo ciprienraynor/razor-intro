@@ -20,3 +20,24 @@ three architectures
 different consequences
 
 Fast performance is just slow mastery compressed in time.
+
+Classic desktop frameworks (WinForms/WPF) are **event-driven and imperative**: 
+you handle an event and directly mutate the UI, so the UI itself becomes a source of truth.
+
+Example (imperative):
+button.Text = "Done"
+panel.Visible = false
+
+Modern frameworks like Blazor, React, or Jetpack Compose are **state-driven and declarative**: 
+you update state, and the UI is re-rendered as a projection of that state.
+
+Example (declarative):
+state.IsDone = true
+
+UI:
+button text = state.IsDone ? "Done" : "Start"
+panel visible = !state.IsDone
+
+In short:
+Desktop → tell the UI what to do  
+Modern UI → describe what the UI should be based on state
