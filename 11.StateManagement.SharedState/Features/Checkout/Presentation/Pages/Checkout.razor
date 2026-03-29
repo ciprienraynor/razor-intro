@@ -1,0 +1,24 @@
+@page "/checkout"
+@using _11.StateManagement.SharedState.Features.Checkout.Presentation.Store
+@using _11.StateManagement.SharedState.Core.BlazorKit
+
+@inherits StoreComponent<CheckoutStore, CheckoutState>
+
+<h3>Checkout</h3>
+
+<p>@State.StatusMessage</p>
+<p>Cart items: @State.CartCount</p>
+<p>Remaining seconds: @State.RemainingSeconds</p>
+
+@if (State.IsExpired)
+{
+    <div style="padding:12px; background:#ffe5e5; border:1px solid #cc0000; margin-bottom:12px;">
+        Your shopping cart expired while you were in the application.
+    </div>
+}
+
+<button @onclick="ClearCart">Clear Cart</button>
+
+@code {
+    private void ClearCart() => Store.ClearCart();
+}

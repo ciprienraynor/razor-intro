@@ -1,0 +1,23 @@
+@page "/product-details"
+
+@using _11.StateManagement.SharedState.Features.ProductDetails.Presentation.Store
+@using _11.StateManagement.SharedState.Core.BlazorKit
+
+@inherits StoreComponent<ProductDetailsStore, ProductDetailsState>
+
+<h3>Product Details</h3>
+
+<p>@State.StatusMessage</p>
+<p>Cart items: @State.CartCount</p>
+<p>Remaining seconds: @State.RemainingSeconds</p>
+
+<button @onclick="AddCookie">Add Cookie</button>
+
+@if (State.IsExpired)
+{
+    <p style="color:crimson; margin-top:12px;">Details page sees shared expiration too.</p>
+}
+
+@code {
+    private void AddCookie() => Store.AddCookie();
+}

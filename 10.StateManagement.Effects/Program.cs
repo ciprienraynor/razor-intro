@@ -1,9 +1,12 @@
 using _10.StateManagement.Effects.Components;
+using _10.StateManagement.Effects.Data.ChainingSync.Remote;
 using _10.StateManagement.Effects.Data.Separation.Remote;
+using _10.StateManagement.Effects.Providers.ChainingAsync;
 using _10.StateManagement.Effects.Providers.Separation;
 using _10.StateManagement.Effects.Providers.Shapes;
 using _10.StateManagement.Effects.Services;
 using _10.StateManagement.Effects.State;
+using _10.StateManagement.Effects.State.ChainingAsync;
 using _10.StateManagement.Effects.State.Definition;
 using _10.StateManagement.Effects.State.Separation;
 using _10.StateManagement.Effects.State.Shapes;
@@ -14,10 +17,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddHttpClient<ProductApiClient>(client =>
+static void ConfigureDummyJson(HttpClient client)
 {
     client.BaseAddress = new Uri("https://dummyjson.com/");
-});
+}
+
+builder.Services.AddHttpClient<ProductApiClient>(ConfigureDummyJson);
+builder.Services.AddHttpClient<OrderApiClient>(ConfigureDummyJson);
 
 builder.Services.AddScoped<FakeMessageService>();
 builder.Services.AddScoped<DefinitionStore>();
@@ -26,6 +32,8 @@ builder.Services.AddScoped<SeparationStore>();
 builder.Services.AddScoped<RequestResponseStore>();
 builder.Services.AddScoped<AnalyticsProvider>();
 builder.Services.AddScoped<FireAndForgetStore>();
+builder.Services.AddScoped<CustomerProvider>();
+builder.Services.AddScoped<ChainingAsyncStore>();
 
 var app = builder.Build();
 

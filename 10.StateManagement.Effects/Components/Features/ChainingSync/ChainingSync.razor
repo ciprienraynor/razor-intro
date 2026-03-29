@@ -1,0 +1,20 @@
+@page "/chaining-sync"
+
+@using _10.StateManagement.Effects.State.Abstracts
+@using _10.StateManagement.Effects.State.ChainingSync
+
+@inherits StoreComponent<ChainingSyncStore, ChainingSyncState>
+
+<h3>Effects.Chaining.Sync</h3>
+
+<p><strong>Step:</strong> @State.Step</p>
+<p><strong>Status:</strong> @State.Status</p>
+
+<button @onclick="Start">Start Sync Chain</button>
+
+@code {
+    private void Start()
+    {
+        Store.StartChain();
+    }
+}

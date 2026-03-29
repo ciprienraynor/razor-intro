@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Components.Lifecycle", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.StateManagement.Effects", "10.StateManagement.Effects\10.StateManagement.Effects.csproj", "{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.StateManagement.SharedState", "11.StateManagement.SharedState\11.StateManagement.SharedState.csproj", "{574D3BFB-498F-4BF3-BBCE-2735C9EFFFD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAsyncSequentialConcurrent", "SyncAsyncSequentialConcurrent\SyncAsyncSequentialConcurrent.csproj", "{453E33DE-EFE8-47D2-B5DF-D30E7AF81D95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +76,13 @@ Global
 		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B21B997-ADDC-4963-BAB5-C92DFA7EB8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574D3BFB-498F-4BF3-BBCE-2735C9EFFFD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574D3BFB-498F-4BF3-BBCE-2735C9EFFFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574D3BFB-498F-4BF3-BBCE-2735C9EFFFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574D3BFB-498F-4BF3-BBCE-2735C9EFFFD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{453E33DE-EFE8-47D2-B5DF-D30E7AF81D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453E33DE-EFE8-47D2-B5DF-D30E7AF81D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453E33DE-EFE8-47D2-B5DF-D30E7AF81D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453E33DE-EFE8-47D2-B5DF-D30E7AF81D95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,31 @@
+@page "/catalog"
+
+@using _11.StateManagement.SharedState.Features.Catalog.Presentation.Store
+@using _11.StateManagement.SharedState.Core.BlazorKit
+
+@inherits StoreComponent<CatalogStore, CatalogState>
+
+
+<h3>Catalog</h3>
+
+<p>@State.StatusMessage</p>
+<p>Cart items: @State.CartCount</p>
+<p>Remaining seconds: @State.RemainingSeconds</p>
+
+<div style="display:flex; gap:8px;">
+    <button @onclick="AddCoffee">Add Coffee</button>
+    <button @onclick="AddTea">Add Tea</button>
+    <button @onclick="ClearCart">Clear Cart</button>
+</div>
+
+@if (State.IsExpired)
+{
+    <p style="color:crimson; margin-top:12px;">Cart expired while user was elsewhere in app.</p>
+}
+
+@code {
+    private void AddCoffee() => Store.AddCoffee();
+    private void AddTea() => Store.AddTea();
+    private void ClearCart() => Store.ClearCart();
+}
+

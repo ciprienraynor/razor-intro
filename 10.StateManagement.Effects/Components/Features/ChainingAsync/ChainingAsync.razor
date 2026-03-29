@@ -1,0 +1,38 @@
+@page "/chaining-async"
+@using _10.StateManagement.Effects.State.Abstracts
+@using _10.StateManagement.Effects.State.ChainingAsync
+@inherits StoreComponent<ChainingAsyncStore, ChainingAsyncState>
+
+<h3>Effects.Chaining.Async</h3>
+
+<p><strong>Status:</strong> @State.Status</p>
+<p><strong>Loading order:</strong> @State.IsLoadingOrder</p>
+<p><strong>Loading customer:</strong> @State.IsLoadingCustomer</p>
+
+@if (!string.IsNullOrWhiteSpace(State.Error))
+{
+    <p style="color:crimson;"><strong>Error:</strong> @State.Error</p>
+}
+
+@if (State.Order is not null)
+{
+    <p><strong>Order Id:</strong> @State.Order.Id</p>
+    <p><strong>Order UserId:</strong> @State.Order.UserId</p>
+    <p><strong>Order Total:</strong> @State.Order.Total</p>
+}
+
+@if (!string.IsNullOrWhiteSpace(State.CustomerName))
+{
+    <p><strong>Customer:</strong> @State.CustomerName</p>
+}
+
+<button @onclick="StartAsync" disabled="@State.IsLoadingOrder || @State.IsLoadingCustomer">
+    Start Async Chain
+</button>
+
+@code {
+    private Task StartAsync()
+    {
+        return Store.StartChainAsync();
+    }
+}
