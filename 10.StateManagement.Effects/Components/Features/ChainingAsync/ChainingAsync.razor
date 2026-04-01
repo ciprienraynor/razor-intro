@@ -26,7 +26,7 @@
     <p><strong>Customer:</strong> @State.CustomerName</p>
 }
 
-<button @onclick="StartAsync" disabled="@State.IsLoadingOrder || @State.IsLoadingCustomer">
+<button @onclick="StartAsync" disabled="@(State.IsLoadingCustomer || State.IsLoadingOrder)">
     Start Async Chain
 </button>
 

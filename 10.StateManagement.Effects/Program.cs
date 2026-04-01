@@ -7,6 +7,7 @@ using _10.StateManagement.Effects.Providers.Shapes;
 using _10.StateManagement.Effects.Services;
 using _10.StateManagement.Effects.State;
 using _10.StateManagement.Effects.State.ChainingAsync;
+using _10.StateManagement.Effects.State.ChainingSync;
 using _10.StateManagement.Effects.State.Definition;
 using _10.StateManagement.Effects.State.Separation;
 using _10.StateManagement.Effects.State.Shapes;
@@ -33,6 +34,7 @@ builder.Services.AddScoped<RequestResponseStore>();
 builder.Services.AddScoped<AnalyticsProvider>();
 builder.Services.AddScoped<FireAndForgetStore>();
 builder.Services.AddScoped<CustomerProvider>();
+builder.Services.AddScoped<ChainingSyncStore>();
 builder.Services.AddScoped<ChainingAsyncStore>();
 
 var app = builder.Build();

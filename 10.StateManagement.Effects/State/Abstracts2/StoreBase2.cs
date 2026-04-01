@@ -77,13 +77,13 @@ public abstract class StoreBase2<TState, TAction> : IStore2<TState>
     /// <summary>
     /// Starts an effect under a given EffectType and start mode.
     ///
-    /// The body is always invoked.
+    /// The effect - executable logic that is always invoked.
     /// If effect was intentionally not started, context.Started = false.
     /// </summary>
     protected async Task RunEffectAsync(
         IEffectType effectType,
         EffectStartMode mode,
-        Func<EffectContext, Task> body)
+        Func<EffectContext, Task> effect)
     {
         RunningEffect? runningEffect;
 
@@ -94,7 +94,7 @@ public abstract class StoreBase2<TState, TAction> : IStore2<TState>
 
         if (runningEffect is null)
         {
-            await body(new EffectContext(
+            await effect(new EffectContext(
                 Started: false,
                 Token: CancellationToken.None,
                 InstanceId: null));
@@ -104,7 +104,7 @@ public abstract class StoreBase2<TState, TAction> : IStore2<TState>
 
         try
         {
-            await body(new EffectContext(
+            await effect(new EffectContext(
                 Started: true,
                 Token: runningEffect.Cancellation.Token,
                 InstanceId: runningEffect.InstanceId));

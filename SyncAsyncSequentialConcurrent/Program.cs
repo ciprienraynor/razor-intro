@@ -33,6 +33,17 @@ public class Program
 
         var a1 = await AsyncA();
         var b1 = await AsyncB();
+        
+        //***** Not real difference and does not really explain
+        //what does returning control to main means because of the awat but if you
+        
+        /*
+         *  var taskA = AsyncA(); -> task is started and returns control
+         *  Console.WriteLine("Do something while A is running");
+         *  var a1 = await taskA;
+         *  var b1 = await AsyncB();
+         */
+        
 
         Console.WriteLine($"{a1}, {b1}");
         Console.WriteLine($"Elapsed: {sw.ElapsedMilliseconds} ms");
